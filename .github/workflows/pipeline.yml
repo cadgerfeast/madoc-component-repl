@@ -29,7 +29,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Debug
-      run: madoc
+      run: npm run madoc
     # - name: Build
     #   run: npm run build
     - name: Publish

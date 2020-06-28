@@ -22,6 +22,7 @@
     "./utils.js"
   ],
   "scripts": {
+    "madoc": "madoc",
     "test": "jest",
     "build": "npm run build:docs",
     "dev:docs": "madoc dev",
