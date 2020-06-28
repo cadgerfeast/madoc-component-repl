@@ -17,6 +17,7 @@
   },
   "scripts": {
     "test": "jest",
+    "build": "npm run build:docs",
     "dev:docs": "madoc dev",
     "build:docs": "madoc build"
   },

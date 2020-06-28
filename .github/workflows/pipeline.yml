@@ -28,6 +28,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - name: Build
+      run: npm run build
     - name: Publish
       run: |
         LATEST=`npm view . version`
@@ -39,9 +41,9 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Domain
-      run: echo "madoc-component-repl.cadgerfeast.dev" > "./dist/CNAME"
+      run: echo "madoc-component-repl.cadgerfeast.dev" > "./dist/docs/CNAME"
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         personal_token: ${{ secrets.ACCESS_TOKEN }}
-        publish_dir: ./__sapper__/export
+        publish_dir: ./dist/docs
