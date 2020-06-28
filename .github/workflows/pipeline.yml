@@ -15,7 +15,7 @@ jobs:
         node-version: '14.3.0'
         registry-url: 'https://registry.npmjs.org'
     - name: Install
-      run: npm install
+      run: npm ci
     - name: Test
       run: npm run test
     - name: Fix Coverage Paths
@@ -28,8 +28,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    - name: Build
-      run: npm run build
+    - name: Debug
+      run: madoc
+    # - name: Build
+    #   run: npm run build
     - name: Publish
       run: |
         LATEST=`npm view . version`
