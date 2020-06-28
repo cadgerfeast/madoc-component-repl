@@ -1,1 +1,1 @@
-{"config":{"dist":"dist","head":["<script type=\"text/javascript\" src=\"/assets/monaco-editor/vs/loader.js\"></script>"]},"navbar":{"links":[{"title":"Home","path":"/"},{"title":"Documentation","path":"/documentation"}],"github":{"link":"https://github.com/cadgerfeast/madoc-core"}}}
+{"config":{"dist":"dist","head":["<script type=\"text/javascript\" src=\"/assets/monaco-editor/vs/loader.js\"></script>"]},"navbar":{"links":[{"title":"Home","path":"/"},{"title":"Documentation","path":"/documentation"}],"github":{"link":"https://github.com/cadgerfeast/madoc-component-repl"}}}
