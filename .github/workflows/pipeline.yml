@@ -15,7 +15,7 @@ jobs:
         node-version: '14.3.0'
         registry-url: 'https://registry.npmjs.org'
     - name: Install
-      run: npm ci
+      run: npm install
     - name: Test
       run: npm run test
     - name: Fix Coverage Paths
@@ -28,11 +28,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    - name: Symlinks
-      run: |
-        which node
-        sudo which node
-        sudo ln -s -f /opt/hostedtoolcache/node/14.3.0/x64/bin/node /usr/local/bin/node
     - name: Build
       run: npm run build
     - name: Publish
