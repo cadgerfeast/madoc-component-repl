@@ -5,5 +5,5 @@ links:
   - title: Documentation
     path: /documentation
 github:
-  link: https://github.com/cadgerfeast/madoc-core
+  link: https://github.com/cadgerfeast/madoc-component-repl
 ---
