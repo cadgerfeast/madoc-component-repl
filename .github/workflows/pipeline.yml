@@ -30,10 +30,9 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Symlinks
       run: |
-        node -v
-        which node
-        sudo ln -s /usr/bin/nodejs /usr/local/bin/node
-        sudo ln -s /usr/bin/npm /usr/local/bin/npm
+        where node
+        sudo where node
+        sudo ln -s -f /opt/hostedtoolcache/node/12.18.1/x64/bin/node /usr/local/bin/node
     - name: Build
       run: npm run build
     - name: Publish
