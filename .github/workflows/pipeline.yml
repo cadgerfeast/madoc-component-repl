@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2-beta
       with:
-        node-version: '12.x'
+        node-version: '14.3.0'
         registry-url: 'https://registry.npmjs.org'
     - name: Install
       run: npm ci
@@ -30,9 +30,9 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Symlinks
       run: |
-        where node
-        sudo where node
-        sudo ln -s -f /opt/hostedtoolcache/node/12.18.1/x64/bin/node /usr/local/bin/node
+        which node
+        sudo which node
+        sudo ln -s -f /opt/hostedtoolcache/node/14.3.0/x64/bin/node /usr/local/bin/node
     - name: Build
       run: npm run build
     - name: Publish
