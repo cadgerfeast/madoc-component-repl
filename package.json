@@ -2,7 +2,7 @@
   "name": "@madoc/component-repl",
   "description": "Madoc REPL Component",
   "main": "./index.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Jérémie Pichon <contact@cadgerfeast.com>",
   "license": "MIT",
   "keywords": [
@@ -16,13 +16,12 @@
     "url": "git+https://github.com/cadgerfeast/madoc-component-repl.git"
   },
   "files": [
-    "./assets",
-    "./index.js",
-    "./Repl.svelte",
-    "./utils.js"
+    "assets/**/*",
+    "index.js",
+    "Repl.svelte",
+    "utils.js"
   ],
   "scripts": {
-    "madoc": "madoc",
     "test": "jest",
     "build": "npm run build:docs",
     "dev:docs": "madoc dev",
@@ -33,7 +32,7 @@
     "monaco-editor": "0.20.0"
   },
   "devDependencies": {
-    "@madoc/core": "0.0.3",
+    "@madoc/core": "0.0.9",
     "@testing-library/jest-dom": "5.10.1",
     "@testing-library/svelte": "3.0.0",
     "babel-jest": "26.0.1",

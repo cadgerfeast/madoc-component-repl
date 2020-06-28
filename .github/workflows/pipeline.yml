@@ -28,10 +28,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    - name: Debug
-      run: npm run madoc
-    # - name: Build
-    #   run: npm run build
+    - name: Build
+      run: npm run build
     - name: Publish
       run: |
         LATEST=`npm view . version`
