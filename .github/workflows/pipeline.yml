@@ -28,6 +28,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - name: Symlinks
+      run: ln -s /usr/bin/nodejs /usr/bin/node
     - name: Build
       run: npm run build
     - name: Publish
