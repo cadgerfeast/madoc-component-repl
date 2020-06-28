@@ -2,7 +2,7 @@
   "name": "@madoc/component-repl",
   "description": "Madoc REPL Component",
   "main": "./index.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Jérémie Pichon <contact@cadgerfeast.com>",
   "license": "MIT",
   "keywords": [
@@ -32,7 +32,7 @@
     "monaco-editor": "0.20.0"
   },
   "devDependencies": {
-    "@madoc/core": "0.0.9",
+    "@madoc/core": "0.0.11",
     "@testing-library/jest-dom": "5.10.1",
     "@testing-library/svelte": "3.0.0",
     "babel-jest": "26.0.1",

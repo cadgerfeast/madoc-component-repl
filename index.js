@@ -21,8 +21,8 @@ module.exports = {
     return await import('./Repl.svelte');
   },
   // Used to copy static content in the build
-  copy (distPath, fn) {
-    fn.copy(fn.path.resolve(__dirname, './node_modules/monaco-editor/min'), fn.path.resolve(distPath, './assets/monaco-editor'));
+  copy (rootPath, distPath, fn) {
+    fn.copy(fn.path.resolve(rootPath, './node_modules/monaco-editor/min'), fn.path.resolve(distPath, './assets/monaco-editor'));
     fn.copy(fn.path.resolve(__dirname, './assets'), fn.path.resolve(distPath, './assets'));
   },
   // Should return an array of html tags that has to be added in the head
