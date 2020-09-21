@@ -1,4 +1,5 @@
 /.docs
+/assets/monaco-editor
 /coverage
 /dist
 /node_modules

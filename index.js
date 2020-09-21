@@ -18,7 +18,6 @@ module.exports = {
     return metadata;
   },
   assets: [
-    { src: 'node_modules/monaco-editor/min', dest: 'monaco-editor' },
     { src: 'assets' }
   ],
   head: [
