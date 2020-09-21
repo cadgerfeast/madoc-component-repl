@@ -1,32 +1,39 @@
-// Entry
+const path = require('path');
+const fs = require('fs');
+
 module.exports = {
-  // Tag to use the component: [${tag}](context)
   tag: 'Repl',
-  // Called when reaching a markdown line with the component, should return metadata sent to the Svelte component
-  parse: (line, fn) => {
-    const match = /\(([^)]+)\)/.exec(line);
-    const rootDir = fn.path.resolve(fn.filePath, match[1]);
-    const metadata = fn.processMetadataFromFile(rootDir);
+  rootPath: __dirname,
+  entry: './dist/Repl.common.js',
+  parse: (line, { filePath, fn }) => {
+    const context = /\(([^)]+)\)/.exec(line)[1];
+    const replPath = path.resolve(filePath, `../${context}`);
+    const metadata = fn.processMarkdownMetadataByFile(replPath);
     for (const project of metadata.projects) {
-      const filePath = fn.getDirName(rootDir);
-      project.template = fn.getFileContent(fn.path.resolve(filePath, project.template));
+      project.template = fs.readFileSync(path.resolve(replPath, `../${project.template}`), 'utf8');
       for (const file of project.files) {
-        file.content = fn.getFileContent(fn.path.resolve(filePath, file.path));
+        file.content = fs.readFileSync(path.resolve(replPath, `../${file.path}`), 'utf8');
       }
     }
     return metadata;
   },
-  // Should be an asynchronous method that returns the Svelte component
-  async getElement () {
-    return await import('./Repl.svelte');
-  },
-  // Used to copy static content in the build
-  copy (rootPath, distPath, fn) {
-    fn.copy(fn.path.resolve(rootPath, './node_modules/monaco-editor/min'), fn.path.resolve(distPath, './assets/monaco-editor'));
-    fn.copy(fn.path.resolve(__dirname, './assets'), fn.path.resolve(distPath, './assets'));
-  },
-  // Should return an array of html tags that has to be added in the head
+  assets: [
+    { src: 'node_modules/monaco-editor/min', dest: 'monaco-editor' },
+    { src: 'assets' }
+  ],
   head: [
-    '<script type="text/javascript" src="/assets/monaco-editor/vs/loader.js"></script>'
+    `
+    <script type="text/javascript">
+      var nodeRequire = window.require;
+    </script>
+    `,
+    '<script type="text/javascript" src="/assets/monaco-editor/vs/loader.js"></script>',
+    `
+    <script type="text/javascript">
+      window.amdRequire = window.require;
+      window.require = nodeRequire;
+    </script>
+    `,
+    '<script type="text/javascript">window.amdRequire.config({ paths: { "vs": "/assets/monaco-editor/vs" }});</script>'
   ]
-}
+};

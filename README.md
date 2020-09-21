@@ -9,16 +9,20 @@
 ## Installation
 
 ``` bash
-# Install dependencies
+# Install
 npm install --save-dev @madoc/component-repl
 ```
 
-Then add this in a **.madoc/components.js** file of your project.
+Then add this to your [Madoc] configuration.
 
 ``` javascript
-module.exports = [
-  require('@madoc/component-repl')
-];
+module.exports = {
+  ...
+  components: [
+    require('@madoc/component-repl')
+  ]
+};
+
 ```
 
 [Madoc]: https://madoc.cadgerfeast.dev/ "Madoc Website"

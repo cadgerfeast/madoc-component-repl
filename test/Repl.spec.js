@@ -1,10 +1,24 @@
-import { render } from '@testing-library/svelte';
-import Repl from '../Repl.svelte';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
+import Vuex from 'vuex';
+import Repl from '@/Repl.vue';
 
-describe('Repl', () => {
-  it('should render', () => {
-    const { container } = render(Repl, {
-      props: {
+const localVue = createLocalVue();
+localVue.use(Vuex);
+
+describe('Repl.vue', () => {
+  let store;
+  beforeEach(() => {
+    store = new Vuex.Store({
+      getters: {
+        themeType: () => 'light'
+      }
+    });
+  });
+  it('should be defined', () => {
+    const wrapper = shallowMount(Repl, {
+      localVue,
+      store,
+      propsData: {
         context: {
           projects: [
             {
@@ -14,6 +28,6 @@ describe('Repl', () => {
         }
       }
     });
-    expect(container).toBeDefined();
+    expect(wrapper).toBeDefined();
   });
 });

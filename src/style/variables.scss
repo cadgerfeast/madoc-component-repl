@@ -1,0 +1,23 @@
+:root {
+  --madoc-vscode-grey-1: #252526;
+  --madoc-vscode-grey-2: #2D2D2D;
+  --madoc-vscode-grey-3: #1E1E1E;
+}
+*[theme-type="light"] {
+  --madoc-vscode-background-color: var(--madoc-html-background-color);
+  --madoc-vscode-navbar-color: var(--madoc-github-underline);
+  --madoc-vscode-tab-background-color: var(--madoc-github-grey-4);
+  --madoc-vscode-active-tab-background-color: var(--madoc-github-grey-9);
+  --madoc-vscode-tab-color: var(--madoc-black-opacity-50);
+  --madoc-vscode-tab-circle-color: var(--madoc-white-opacity-50);
+  --madoc-vscode-border-color: var(--madoc-black-opacity-50);
+}
+*[theme-type="dark"] {
+  --madoc-vscode-background-color: var(--madoc-vscode-grey-1);
+  --madoc-vscode-navbar-color: var(--madoc-vscode-grey-1);
+  --madoc-vscode-tab-background-color: var(--madoc-vscode-grey-2);
+  --madoc-vscode-active-tab-background-color: var(--madoc-vscode-grey-3);
+  --madoc-vscode-tab-color: var(--madoc-white-opacity-50);
+  --madoc-vscode-tab-circle-color: var(--madoc-white-opacity-50);
+  --madoc-vscode-border-color: var(--madoc-white-opacity-50);
+}
