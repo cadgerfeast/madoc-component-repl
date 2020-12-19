@@ -283,7 +283,7 @@ div.madoc-repl {
       z-index: 1;
       cursor: e-resize;
       left: calc(50% - 4px);
-      background-color: var(--madoc-vscode-border-color);
+      background-color: transparent;
       user-select: none;
     }
     > div.repl-iframe-container {

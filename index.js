@@ -4,10 +4,9 @@ const fs = require('fs');
 module.exports = {
   tag: 'Repl',
   rootPath: __dirname,
-  entry: './dist/Repl.common.js',
-  parse: (line, { filePath, fn }) => {
-    const context = /\(([^)]+)\)/.exec(line)[1];
-    const replPath = path.resolve(filePath, `../${context}`);
+  entry: './dist/Repl.umd.min.js',
+  parse: ({ attrs, filePath, fn }) => {
+    const replPath = path.resolve(filePath, `../${attrs.metadata}`);
     const metadata = fn.processMarkdownMetadataByFile(replPath);
     for (const project of metadata.projects) {
       project.template = fs.readFileSync(path.resolve(replPath, `../${project.template}`), 'utf8');
